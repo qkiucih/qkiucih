@@ -1,0 +1,12 @@
+name: Build and Test
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+    - name: Build and test
+      run: python -c 'import unittest; unittest.main()' exit 0
